@@ -1,0 +1,28 @@
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+messages %}
+<p>{{message}}</p>
+{% endfor %} {% endif %} {% endwith %}
+
+<form action="/car/create" method="post">
+  <input type="hidden" name="user_id" value="{{session['user_id']}}" />
+  <label for="price">price:</label>
+  <input type="text" name="price" />
+  <label for="model">Model:</label>
+  <input type="text" name="model" />
+  <label for="make">make:</label>
+  <input type="text" name="make" />
+  <label for="year">Year:</label>
+  <input type="text" name="year" />
+  <label for="last_name">description:</label>
+  <input type="text" name="description" />
+
+  <input type="submit" value="Add New car" />
+</form>
+
+<br />
+<a href="/dashboard">dashboard</a>
+<br />
+<br />
+<a href="/clear_session">log off</a>
+
+<p>User ID: {{session['user_id']}}</p>

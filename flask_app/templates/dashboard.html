@@ -1,0 +1,21 @@
+<h1>Welcome to the car dealz, {{user.first_name}}</h1>
+
+{% for car in all_cars %}
+
+<p>{{car.model}}</p>
+<p>{{car.year}}</p>
+<p>{{car.user.first_name}}</p>
+<p>{{car.user.last_name}}</p>
+
+{% if car.user_id == session["user_id"]: %}
+<a href="/car/{{car.id}}/delete">delete Car</a>
+<a href="/cars/edit/{{car.id}}">edit Car</a>
+
+{% endif %}
+<a href="/show/{{car.id}}">Show</a>
+
+{% endfor %}
+
+<h5></h5>
+<a href="/new_car">New Car</a>
+<a href="/clear_session">log off</a>

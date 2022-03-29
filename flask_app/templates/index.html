@@ -1,0 +1,33 @@
+<h1>register red belt</h1>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+messages %}
+<p>{{message}}</p>
+{% endfor %} {% endif %} {% endwith %}
+
+<form action="/users/create" method="post">
+  <label for="first_name">firstname:</label>
+  <input type="text" name="first_name" />
+  <label for="last_name">Last name:</label>
+  <input type="text" name="last_name" />
+  <label for="email">email:</label>
+  <input type="text" name="email" />
+  <label for="password">password:</label>
+  <input type="text" name="password" />
+  <label for="confirm_password">Confirm password:</label>
+  <input type="text" name="confirm_password" />
+  <input type="submit" value="Register" />
+</form>
+
+<h1>Login</h1>
+
+<br /><br />
+
+<form action="/login" method="post">
+  <label for="email">email:</label>
+  <input type="text" name="email" />
+  <label for="password">password:</label>
+  <input type="text" name="password" />
+  <input type="submit" value="Log in" />
+</form>
+
+<a href="/clear_session">log off</a>

@@ -1,0 +1,25 @@
+<h2>edit</h2>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+messages %}
+<p>{{message}}</p>
+{% endfor %} {% endif %} {% endwith %}
+<form action="/cars/edit/{{car.id}}" method="post">
+  <input type="hidden" name="user_id" value="{{session['user_id']}}" />
+  <label for="price">price:</label>
+  <input type="number" name="price" value="{{car.price}}" />
+  <label for="model">Model:</label>
+  <input type="text" name="model" value="{{car.model}}" />
+  <label for="make">make:</label>
+  <input type="text" name="make" value="{{car.make}}" />
+  <label for="year">Year:</label>
+  <input type="number" name="year" value="{{car.year}}" />
+  <label for="last_name">description:</label>
+  <input type="text" name="description" value="{{car.description}}" />
+  <input type="submit" value="update car!" />
+</form>
+
+<a href="/clear_session">log off</a>
+<br />
+<br />
+<a href="/dashboard">dashboard</a>
+<br />
